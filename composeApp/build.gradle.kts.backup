@@ -84,17 +84,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
-
-        // Читаем Google Maps API key из local.properties
-        val properties = java.util.Properties()
-        val localPropertiesFile = rootProject.file("local.properties")
-        if (localPropertiesFile.exists()) {
-            localPropertiesFile.inputStream().use { properties.load(it) }
-        }
-        val mapsApiKey = properties.getProperty("MAPS_API_KEY", "")
-
-        // Передаем в AndroidManifest через placeholder
-        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
     }
     
     packaging {
